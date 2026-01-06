@@ -3,5 +3,14 @@
 version = 4
 
 [[package]]
+name = "broken-pipe-kills"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c2003b1957f5419bfd94a7976da8df019d2673b90b36176c8253b98df479177d"
+
+[[package]]
 name = "hello-world-loop"
 version = "0.1.0"
+dependencies = [
+ "broken-pipe-kills",
+]

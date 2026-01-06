@@ -1,10 +1,15 @@
-#![feature(extern_item_impls)]
-#![feature(on_broken_pipe)]
+//! Instead of using an external crate we could manually override `on_broken_pipe`:
+//!
+//! ```
+//! #![feature(on_broken_pipe)]
+//!
+//! #[std::io::on_broken_pipe]
+//! fn on_broken_pipe() -> std::io::OnBrokenPipe {
+//!     std::io::OnBrokenPipe::Kill
+//! }
+//! ```
 
-#[std::io::on_broken_pipe]
-fn on_broken_pipe() -> std::io::OnBrokenPipe {
-    std::io::OnBrokenPipe::Inherit
-}
+use broken_pipe_kills;
 
 fn main() {
     loop {
